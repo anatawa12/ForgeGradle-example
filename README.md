@@ -1,6 +1,6 @@
 # ForgeGradle 1.2 For Gradle 5 Example Project
 
-This is an example of fork of ForgeGradle made by anatawa12.
+This is an example of [fork of ForgeGradle made by anatawa12](https://github.com/anatawa12/ForgeGradle).
 The ForgeGradle is made to support Gradle 4.4.1 or later.
 
 ## How to use this example
