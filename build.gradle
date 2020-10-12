@@ -30,8 +30,8 @@ version = project.version
 group = project.group
 
 minecraft {
-    version = "1.7.10-10.13.4.1558-1.7.10"
-    runDir = "eclipse"
+    version = project.minecraft_version + "-" + project.forge_version
+    runDir = "run"
 }
 
 dependencies {
