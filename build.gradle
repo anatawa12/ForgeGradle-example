@@ -17,10 +17,10 @@ buildscript {
 
 plugins {
     id 'java-library'
-	id 'maven-publish'
+    id 'maven-publish'
 }
 
-// These settings allow you to choose what version of Java you want to be compatible with. Forge 1.7.10 runs on Java 6 to 8. 
+// These settings allow you to choose what version of Java you want to be compatible with. Forge 1.7.10 runs on Java 6 to 8.
 sourceCompatibility = 1.6
 targetCompatibility = 1.6
 
@@ -39,7 +39,7 @@ dependencies {
     // or you may define them like so..
     //compile "some.group:artifact:version:classifier"
     //compile "some.group:artifact:version"
-      
+
     // real examples
     //compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env
     //compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24' // adds ejml to the dev env
@@ -63,19 +63,19 @@ processResources {
 
 // Ensures that the encoding of source files is set to UTF-8, see http://yodaconditions.net/blog/fix-for-java-file-encoding-problems-with-gradle.html
 tasks.withType(JavaCompile) {
-	options.encoding = "UTF-8"
+    options.encoding = "UTF-8"
 }
 
 // This task creates a .jar file containing the source code of this mod.
 task sourcesJar(type: Jar, dependsOn: classes) {
-	classifier = "sources"
-	from sourceSets.main.allSource
+    classifier = "sources"
+    from sourceSets.main.allSource
 }
 
 // This task creates a .jar file containing a deobfuscated version of this mod, for other developers to use in a development environment.
 task devJar(type: Jar) {
     classifier = "dev"
-	from sourceSets.main.output
+    from sourceSets.main.output
 }
 
 // Creates the listed artifacts on building the mod.
@@ -86,23 +86,23 @@ artifacts {
 
 // This block configures any maven publications you want to make.
 publishing {
-	publications {
-		mavenJava(MavenPublication) {
-		// Add any other artifacts here that you would like to publish!
-			artifact(jar) {
-				builtBy build
-			}
-			artifact(sourcesJar) {
-				builtBy sourcesJar
-			}
-			artifact(devJar) {
-				builtBy devJar
-			}
-		}
-	}
+    publications {
+        mavenJava(MavenPublication) {
+        // Add any other artifacts here that you would like to publish!
+            artifact(jar) {
+                builtBy build
+            }
+            artifact(sourcesJar) {
+                builtBy sourcesJar
+            }
+            artifact(devJar) {
+                builtBy devJar
+            }
+        }
+    }
 
-	// This block selects the repositories you want to publish to.
-	repositories {
-	    // Add the repositories you want to publish to here.
-	}
+    // This block selects the repositories you want to publish to.
+    repositories {
+        // Add the repositories you want to publish to here.
+    }
 }
