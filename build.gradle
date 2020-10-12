@@ -15,6 +15,15 @@ buildscript {
     }
 }
 
+plugins {
+    id 'java-library'
+}
+
+// These settings allow you to choose what version of Java you want to be compatible with. Forge 1.7.10 runs on Java 6 to 8. 
+// Targeting Java 6 makes a mod more compatible, but targeting Java 8 allows for usage of newer features.
+sourceCompatibility = 1.6
+targetCompatibility = 1.6
+
 apply plugin: 'forge'
 
 version = project.version
