@@ -1,14 +1,28 @@
-*
-!.gitignore
-!eclipse
-!gradle
-!src
-!build.gradle
-!CREDITS-fml.txt
-!forge-1.7.10-10.13.4.1558-1.7.10-changelog.txt
-!gradlew
-!gradlew.bat
-!LICENSE-fml.txt
-!MinecraftForge-Credits.txt
-!MinecraftForge-License.txt
-!README.md
+# mac os
+.DS_Store
+
+# forge / gradle
+.gradle
+build/
+out/
+classes/
+run/
+
+# eclipse 
+*.launch
+.settings
+.classpath
+.project
+eclipse
+
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# vscode
+
+.settings/
+.vscode/
+bin/
+.classpath
