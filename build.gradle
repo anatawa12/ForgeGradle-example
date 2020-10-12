@@ -1,9 +1,9 @@
 buildscript {
     repositories {
-        jcenter()
+        maven { url = "https://jcenter.bintray.com/" }
         maven {
             name = "forge"
-            url = "http://files.minecraftforge.net/maven"
+            url = "https://files.minecraftforge.net/maven"
         }
         maven {
             name = "sonatype"
@@ -11,7 +11,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'com.anatawa12.forge:ForgeGradle:1.2-1.0.0'
+        classpath 'com.anatawa12.forge:ForgeGradle:1.2-1.0.+'
     }
 }
 
