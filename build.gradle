@@ -17,6 +17,7 @@ buildscript {
 
 plugins {
     id 'java-library'
+	id 'maven-publish'
 }
 
 // These settings allow you to choose what version of Java you want to be compatible with. Forge 1.7.10 runs on Java 6 to 8. 
@@ -61,4 +62,45 @@ processResources
         // replace version and mcversion
         expand 'version':project.version, 'mcversion':project.minecraft.version
     }
+}
+
+// This task creates a .jar file containing the source code of this mod.
+task sourcesJar(type: Jar, dependsOn: classes) {
+	classifier = "sources"
+	from sourceSets.main.allSource
+}
+
+// This task creates a .jar file containing a deobfuscated version of this mod, for other developers to use in a development environment.
+task devJar(type: Jar) {
+    classifier = "dev"
+	from sourceSets.main.output
+}
+
+// Creates the listed artifacts on building the mod.
+artifacts {
+    archives sourcesJar
+    archives devJar
+}
+
+// This block configures any maven publications you want to make.
+publishing {
+	publications {
+		mavenJava(MavenPublication) {
+		// Add any other arartifacts here that you would like to publish!
+			artifact(jar) {
+				builtBy build
+			}
+			artifact(sourcesJar) {
+				builtBy sourcesJar
+			}
+			artifact(devJar) {
+				builtBy devJar
+			}
+		}
+	}
+
+	// This block selects the repositories you want to publish to.
+	repositories {
+	
+	}
 }
