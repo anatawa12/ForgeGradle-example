@@ -1,15 +1,36 @@
-# ForgeGradle 1.2 For Gradle 5 Example Project
+# anatawa12's ForgeGradle 1.2 fork for Gradle 4.4.1+ - example project
 
-This is an example of [fork of ForgeGradle made by anatawa12](https://github.com/anatawa12/ForgeGradle).
-The ForgeGradle is made to support Gradle 4.4.1 or later.
+This is an example mod using the [fork of ForgeGradle-1.2 made by anatawa12](https://github.com/anatawa12/ForgeGradle-1.2).
+This fork supports Gradle 4.4.1 and later. This example project uses Gradle 5.6.4.
 
-## How to use this example
+## How to use this example project
 
-You can download this example form [here](https://github.com/anatawa12/ForgeGradle-example/archive/master.zip).
-You can use this as forge's mdk(in 1.7.10, src).
-This project has inappropriate .gitignore so you should remake .gitignore yourself.
- 
-## How to Use FG1.2 for Gradle 5
+You can download this example project from [here](https://github.com/anatawa12/ForgeGradle-example/archive/master.zip), or use it as a template on Github.
+This project can be used as a replacement for Forge's 1.7.10 MDK.
 
-We changed only a few to use FG1.2 for Gradle 5. 
-[here](https://github.com/anatawa12/ForgeGradle-example/commit/52d6f450a55f93d40365ed0fd2944cea5ca2b4d8)'s the list of changes from forge's mdk(in 1.7.10, src) to use FG1.2 for Gradle5.
+## How to replace ForgeGradle 1.2. with anatawa12's fork
+Although this example project has some differences to Forge's 1.7.10 MDK, anatawa12's fork of ForgeGradle 1.2 can be used by most projects with only minimal changes to their Gradle build script.
+
+Here is a list of changes to Forge's 1.7.10 MDK Gradle build script, to replace the official ForgeGradle 1.2 plugin with the fork. These changes are likely to work with most projects based on Forge's 1.7.10 MDK.
+
+In the repositories block of the buildscript section, add jcenter, and switch the Forge maven to use HTTPS instead of HTTP:
+```diff
+     repositories {
+         mavenCentral()
++        maven { url = "https://jcenter.bintray.com/" }
+         maven {
+             name = "forge"
+-            url = "http://files.minecraftforge.net/maven"
++            url = "https://files.minecraftforge.net/maven"
+         }
+```
+
+Also in the dependencies block of the buildscript section, change the dependency on Forge's official ForgeGradle 1.2 to the fork:
+```diff
+     dependencies {
+-        classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
++        classpath 'com.anatawa12.forge:ForgeGradle:1.2-1.0.+'
+     }
+```
+
+The Gradle wrapper should also be changed to use Gradle 4.4.1 or higher. Currently, the plugin [does not support Gradle 6.x](https://github.com/anatawa12/ForgeGradle-1.2/issues/9), although this may change in the future. As such, the latest version of Gradle this plugin supports is Gradle 5.6.4.
