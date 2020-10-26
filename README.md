@@ -29,7 +29,9 @@ Also in the dependencies block of the buildscript section, change the dependency
 ```diff
      dependencies {
 -        classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
-+        classpath 'com.anatawa12.forge:ForgeGradle:1.2-1.0.+'
++        classpath 'com.anatawa12.forge:ForgeGradle:1.2-1.0.+'{
++            changing = true
++        }
      }
 ```
 
