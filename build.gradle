@@ -1,6 +1,6 @@
 buildscript {
     repositories {
-        maven { url = "https://jcenter.bintray.com/" }
+        mavenCentral()
         maven {
             name = "forge"
             url = "https://files.minecraftforge.net/maven"
