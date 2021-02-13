@@ -17,7 +17,6 @@ In the repositories block of the buildscript section, add jcenter, and switch th
 ```diff
      repositories {
          mavenCentral()
-+        maven { url = "https://jcenter.bintray.com/" }
          maven {
              name = "forge"
 -            url = "http://files.minecraftforge.net/maven"
