@@ -20,7 +20,7 @@ In the repositories block of the buildscript section, add jcenter, and switch th
          maven {
              name = "forge"
 -            url = "http://files.minecraftforge.net/maven"
-+            url = "https://files.minecraftforge.net/maven"
++            url = "https://maven.minecraftforge.net/"
          }
 ```
 
