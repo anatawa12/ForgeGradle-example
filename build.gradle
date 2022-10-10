@@ -87,8 +87,7 @@ artifacts {
 }
 
 // This block configures any maven publications you want to make.
-publishing {
-    publications {
+publishing.publications {
         mavenJava(MavenPublication) {
         // Add any other artifacts here that you would like to publish!
             artifact(jar) {
@@ -101,10 +100,9 @@ publishing {
                 builtBy devJar
             }
         }
-    }
+}
 
     // This block selects the repositories you want to publish to.
-    repositories {
+publishing.repositories {
         // Add the repositories you want to publish to here.
-    }
 }
