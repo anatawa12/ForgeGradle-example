@@ -66,13 +66,13 @@ tasks.withType(JavaCompile) {
 
 // This task creates a .jar file containing the source code of this mod.
 task sourcesJar(type: Jar, dependsOn: classes) {
-    classifier = "sources"
+    archiveClassifier = "sources"
     from sourceSets.main.allSource
 }
 
 // This task creates a .jar file containing a deobfuscated version of this mod, for other developers to use in a development environment.
 task devJar(type: Jar) {
-    classifier = "dev"
+    archiveClassifier = "dev"
     from sourceSets.main.output
 }
 
